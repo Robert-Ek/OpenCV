@@ -6,16 +6,17 @@ from os.path import isfile, join
 
 # Load HAAR face classifier
 face_classifier = cv2.CascadeClassifier(r'C:\Users\Robert Ek\Desktop\Master OpenCV\Haarcascades\haarcascade_frontalface_default.xml')
+#here you need to specify the path of your face classifier xml file or where it's located 
 
 # Load functions
 def face_extractor(img):
     # Function detects faces and returns the cropped face
     # If no face detected, it returns the input image
     
-    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) #create a grayscale image 
     faces = face_classifier.detectMultiScale(gray, 1.3, 5)
     
-    if faces is ():
+    if faces is (): #if there's no faces found
         return None
     
     # Crop all faces found
@@ -125,10 +126,10 @@ while True:
             
         cv2.putText(image, display_string, (100, 120), cv2.FONT_HERSHEY_COMPLEX, 1, (255,120,150), 2)
         
-        if confidence > 91:
+        if confidence > 91: #we need to be at least 91% confident that we have the correct face detected to output proper text
             cv2.putText(image, "User Detected", (200, 450), cv2.FONT_HERSHEY_COMPLEX, 1, (0,255,0), 2)
             cv2.imshow('Face Recognition', image )
-        else:
+        else: #otherwise say we do not have the correct face detected 
             cv2.putText(image, "Incorrect User Detected", (200, 450), cv2.FONT_HERSHEY_COMPLEX, 1, (0,0,255), 2)
             cv2.imshow('Face Recognition', image )
 
