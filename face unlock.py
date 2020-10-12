@@ -5,8 +5,8 @@ from os import listdir
 from os.path import isfile, join
 
 # Load HAAR face classifier
-face_classifier = cv2.CascadeClassifier(r'C:\Users\Robert Ek\Desktop\Master OpenCV\Haarcascades\haarcascade_frontalface_default.xml')
-#here you need to specify the path of your face classifier xml file or where it's located 
+face_classifier = cv2.CascadeClassifier(r'\haarcascade_frontalface_default.xml')
+#path face classifier xml file
 
 # Load functions
 def face_extractor(img):
