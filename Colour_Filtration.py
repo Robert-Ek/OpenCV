@@ -8,7 +8,7 @@ cap = cv2.VideoCapture(0)
 lower_red = np.array([153,102,255])
 upper_red = np.array([128,0,0])
 
-# loop until break statement is exectured
+# loop until break statement is executed 
 while True:
     
     # Read webcam image
